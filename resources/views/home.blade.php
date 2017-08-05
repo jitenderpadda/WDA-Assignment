@@ -1,5 +1,5 @@
-@extends('master')
-@section('title', 'Home')
+@extends('shared.master')
+@section('title', 'ITS')
 @section('content')
     <div class="container">
         <div class="content">

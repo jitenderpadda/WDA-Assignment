@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', function () {return view('home');});
+Route::get('home', function () {return view('home');});
+Route::get('request-form', function () {return view('requestForm');});
+Route::get('faq', function () {return view('faq');});
+Route::get('trackProgress', function () {return view('trackProgress');});

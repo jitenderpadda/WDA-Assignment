@@ -4,3 +4,16 @@
 .request-form{
     padding: 2%;
 }
+#home-page-image {
+    width: 100%;
+    padding-top: 1%;
+}
+.question {
+    font-size: large;
+    font-style: italic;
+    font-weight: bold;
+    color: #e60028;
+}
+.faq-container {
+    margin-top: 2%;
+}

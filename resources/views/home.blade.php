@@ -1,6 +1,10 @@
+
 @extends('shared.master')
 @section('title', 'ITS')
 @section('content')
+    <div class="container">
+        <img id = "home-page-image" src={{ asset('img/home-page-image.jpg') }} alt="Logo">
+    </div>
     <section class="boxes_area">
         <div class="container">
             <div class="row">

@@ -5,7 +5,7 @@
     <form>
         <div class="form-group">
             <label for="department">Department</label>
-            <input type="text" class="form-control" id="department">
+            <input type="text" class="form-control" id="department" readonly>
         </div>
         <div class="form-group">
             <label for="inputEmail">Email Address</label>

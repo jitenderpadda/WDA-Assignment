@@ -8,7 +8,7 @@ a:hover {color: #000000;transition-property: all;transition-duration: 0.3s;trans
 a.none:hover {text-decoration: none;}
 
 /* Header */
-.top {background-color: #e60028;padding: 5px 0;color: #fff;}
+.top {background-color: #e60028;padding: 10px 0;color: #fffcf4;}
 .top p {margin: 0;}
 .top ul {margin: 0;padding: 0;}
 .top li i {color: #fff;}
@@ -20,7 +20,7 @@ a.none:hover {text-decoration: none;}
 .navbar {-moz-border-radius: 0;-webkit-border-radius: 0;border-radius: 0;margin-bottom: 0;}
 .navbar .container {position: relative;}
 .navbar-default {-moz-transition: all 0.3s ease-out;-o-transition: all 0.3s ease-out;-webkit-transition: all 0.3s ease-out;transition: all 0.3s ease-out;width: 100%;border: none;border-bottom: 1px solid #e7e7e7;background-color: #fff;}
-.navbar-default .navbar-nav > li > a {color: #e60028;font-weight: normal;font-size: 13px;}
+.navbar-default .navbar-nav > li > a {color: #e60028;font-weight: normal;font-size: 25px;}
 .navbar-default .navbar-nav > li > a:hover {background-color: #e60028;color: #000000;}
 .navbar-default .navbar-nav > .open > a,.navbar-default .navbar-nav > .open > a:hover,.navbar-default .navbar-nav > .open > a:focus {background-color: #e60028;color: #000000;}
 .navbar-default .navbar-toggle {margin: 10px 0 0 15px;}

@@ -1,9 +1,6 @@
 @extends('shared.master')
 @section('title', 'Submit Request')
 @section('content')
-
-
-
     <div class="container request-form">
         <h1>RAISE TICKET</h1>
         <ul>
@@ -11,12 +8,6 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-        @if(Session::has('message'))
-            <div class="alert alert-info">
-                {{Session::get('thanks')}}
-            </div>
-        @endif
-
         {!! Form::open(array('route' => 'raise_ticket_store', 'class' => 'form')) !!}
         <div class="form-group">
             {!! Form::label('Service Area') !!}

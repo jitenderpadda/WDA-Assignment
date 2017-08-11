@@ -2,7 +2,7 @@
 @extends('shared.master')
 @section('title', 'ITS')
 @section('content')
-    <script src="{{ asset('/js/home.js') }}"></script>
+    <!--<script src="{{ asset('/js/home.js') }}"></script>-->
     <!--Modal-->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">

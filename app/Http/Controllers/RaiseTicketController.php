@@ -16,7 +16,6 @@ class RaiseTicketController extends Controller
     }
     public function store(RaiseTicketFormRequest $request)
     {
-        session()->put('thanks',  'ticket has been successfully raised.');
-        return Redirect::route('raise_ticket');
+        return view('trackProgress');
     }
 }

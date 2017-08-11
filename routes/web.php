@@ -18,4 +18,8 @@ Route::get('raise_ticket',
 Route::post('raise_ticket',
     ['as' => 'raise_ticket_store', 'uses' => 'RaiseTicketController@store']);
 Route::get('faq', function () {return view('faq');});
-Route::get('track-progress', function () {return view('trackProgress');});
+Route::get('track-progress',
+    ['as' => 'track-progress', 'uses' => 'TrackProgressController@create']);
+Route::post('track-progress',
+    ['as' => 'track-progress-store', 'uses' => 'TrackProgressController@store']);
+Route::get('tickets', function () {return view('tickets');});

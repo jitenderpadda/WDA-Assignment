@@ -23,24 +23,7 @@
                 <ul class="nav navbar-nav main-navbar-nav">
                     <li ><a href="home">Home<span class="sr-only">(current)</span></a></li>
                     <li><a href="faq">FAQ</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Raise Ticket
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="selected-option-menu"><a href="request-form">RMIT Training</a></li>
-                            <li class="divider"></li>
-                            <li class="selected-option-menu"><a href="request-form">Buisness Systems</a></li>
-                            <li class="divider"></li>
-                            <li class="selected-option-menu"><a href="request-form">ARG</a></li>
-                            <li class="divider"></li>
-                            <li class="selected-option-menu"><a href="request-form">Human Resources</a></li>
-                            <li class="divider"></li>
-                            <li class="selected-option-menu"><a href="request-form">Web and Digital Services</a></li>
-                            <li class="divider"></li>
-                            <li class="selected-option-menu"><a href="request-form">Information Technology Services</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="raise_ticket">Raise Ticket</a></li>
                     <li><a href="track-progress">Track Progress</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->

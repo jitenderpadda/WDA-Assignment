@@ -1,33 +1,75 @@
 @extends('shared.master')
 @section('title', 'Submit Request')
 @section('content')
+
+
+
     <div class="container request-form">
-    <form>
+        <h1>RAISE TICKET</h1>
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        @if(Session::has('message'))
+            <div class="alert alert-info">
+                {{Session::get('thanks')}}
+            </div>
+        @endif
+
+        {!! Form::open(array('route' => 'raise_ticket_store', 'class' => 'form')) !!}
         <div class="form-group">
-            <label for="department">Department</label>
-            <input type="text" class="form-control" id="department" readonly>
+            {!! Form::label('Service Area') !!}
+            {{ Form::select('department', [
+                'RMIT Training' => 'RMIT Training',
+                'Buisness Systems' => 'Buisness Systems',
+                'ARG' => 'ARG',
+                'Human Resources' => 'Human Resources',
+                'Web and Digital Services' => 'Web and Digital Services',
+                'Information Technology' => 'Information Technology'],
+                array('required',
+                      'class'=>'form-control',
+                      'placeholder'=>'Service Area')
+            ) }}
         </div>
         <div class="form-group">
-            <label for="inputEmail">Email Address</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="Enter Email">
+            {!! Form::label('Your Name') !!}
+            {!! Form::text('name', null,
+                array('required',
+                      'class'=>'form-control',
+                      'placeholder'=>'Your name')) !!}
         </div>
+
         <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+            {!! Form::label('Your E-mail Address') !!}
+            {!! Form::text('email', null,
+                array('required',
+                      'class'=>'form-control',
+                      'placeholder'=>'Your e-mail address')) !!}
         </div>
+
         <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+            {!! Form::label('Subject') !!}
+            {!! Form::text('subject', null,
+                array('required',
+                      'class'=>'form-control',
+                      'placeholder'=>'Issue Summary')) !!}
         </div>
+
         <div class="form-group">
-            <label for="issue">Issue</label>
-            <input type="text" class="form-control" id="issue" placeholder="Enter Issue Summary">
+            {!! Form::label('Your Issue') !!}
+            {!! Form::textarea('issue', null,
+                array('required',
+                      'class'=>'form-control',
+                      'placeholder'=>'Your Issue')) !!}
         </div>
+
+
         <div class="form-group">
-            <label for="issueDescription">Issue Description</label>
-            <textarea class="form-control" id="issueDescription" rows="3"></textarea>
+            {!! Form::submit('Raise Ticket',
+              array('class'=>'btn btn-primary request-submit-button')) !!}
         </div>
-        <button type="submit" class="btn btn-primary request-submit-button">Raise Ticket</button>
-    </form>
+
+        {!! Form::close() !!}
     </div>
 @endsection

@@ -9,4 +9,4 @@ class Ticket extends Model
     protected $fillable = [
         'name', 'email', 'software_issue', 'operating_system', 'comment', 'status'
     ];
-}
+} 

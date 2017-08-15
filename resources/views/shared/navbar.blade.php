@@ -1,13 +1,21 @@
 <header class="site-header">
+
     <div class="top">
         <div class="container">
             <div class="row">
                 <div id="user-name">
-                    <p>Welcome User!</p>
+                    <p>Welcome
+                        @if(Session::has('email'))
+                             {{Session::get('email')}}
+                        @else
+                              User
+                        @endif
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+
     <nav class="navbar navbar-default">
         <div class="container">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -25,6 +33,10 @@
                     <li><a href="faq">FAQ</a></li>
                     <li><a href="raise_ticket">Raise Ticket</a></li>
                     <li><a href="view_tickets">View Tickets</a></li>
+                    <li><a href="track-progress">View Tickets</a></li>
+                    @if(Session::has('email'))
+                        <li><a href="logout">Logout</a></li>
+                    @endif
                 </ul>
             </div><!-- /.navbar-collapse -->
             <!-- END MAIN NAVIGATION -->

@@ -10,10 +10,14 @@ class TrackProgressController extends Controller
 {
     public function create()
     {
-        return view('trackProgress');
+        if(session()->has('email'))
+            return view('tickets');
+        else
+            return view('trackProgress');
     }
     public function store(TrackProgessRequest $request)
     {
+        session()->put('email', $request->email);
         return view('tickets');
     }
 }

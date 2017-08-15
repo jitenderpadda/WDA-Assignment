@@ -18,8 +18,8 @@ class CreateTicketsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('software_issue');
-            $table->string('comment');
             $table->string('operating_system');
+            $table->string('comment');
             $table->string('status');
             $table->timestamps();
         });

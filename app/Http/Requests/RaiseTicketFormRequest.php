@@ -24,11 +24,11 @@ class RaiseTicketFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'softwareIssue'=>'required',
             'name' => 'required',
             'email' => 'required|email',
-            'operatingSystem' => 'required',
-            'comments' => 'required',
+            'software_issue' => 'required',
+            'operating_system' => 'required',
+            'comment'=>'required',
         ];
     }
 }

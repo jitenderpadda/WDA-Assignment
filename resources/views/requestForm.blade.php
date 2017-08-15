@@ -32,32 +32,32 @@
 
         <div class="form-group">
             {!! Form::label('Software Issue') !!}
-            {!! Form::text('softwareIssue', null,
+            {!! Form::text('software_issue', null,
                 array('required',
                       'class'=>'form-control',
-                      'placeholder'=>'Software Issue')) !!}
+                      'placeholder'=>'Issue Summary')) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('Operating System') !!}
-            {!! Form::text('operatingSystem', null,
+            {!! Form::text('operating_system', null,
                 array('required',
                       'class'=>'form-control',
                       'placeholder'=>'Operating System')) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('Comments') !!}
-            {!! Form::textarea('comments', null,
+            {!! Form::label('Comment') !!}
+            {!! Form::textarea('comment', null,
                 array('required',
                       'class'=>'form-control',
-                      'placeholder'=>'Comments')) !!}
+                      'placeholder'=>'Software Issue')) !!}
         </div>
 
 
         <div class="form-group">
             {!! Form::submit('Raise Ticket',
-              array('class'=>'btn btn-success request-submit-button')) !!}
+              array('class'=>'btn btn-primary request-submit-button')) !!}
         </div>
 
         {!! Form::close() !!}

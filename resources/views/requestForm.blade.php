@@ -10,20 +10,6 @@
         </ul>
         {!! Form::open(array('route' => 'raise_ticket_store', 'class' => 'form')) !!}
         <div class="form-group">
-            {!! Form::label('Service Area') !!}
-            {{ Form::select('department', [
-                'RMIT Training' => 'RMIT Training',
-                'Buisness Systems' => 'Buisness Systems',
-                'ARG' => 'ARG',
-                'Human Resources' => 'Human Resources',
-                'Web and Digital Services' => 'Web and Digital Services',
-                'Information Technology' => 'Information Technology'],
-                array('required',
-                      'class'=>'form-control',
-                      'placeholder'=>'Service Area')
-            ) }}
-        </div>
-        <div class="form-group">
             {!! Form::label('Your Name') !!}
             {!! Form::text('name', null,
                 array('required',
@@ -48,11 +34,19 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('Your Issue') !!}
+            {!! Form::label('Operating System') !!}
+            {!! Form::text('operating-system', null,
+                array('required',
+                      'class'=>'form-control',
+                      'placeholder'=>'Operating System')) !!}
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('Software Issue') !!}
             {!! Form::textarea('issue', null,
                 array('required',
                       'class'=>'form-control',
-                      'placeholder'=>'Your Issue')) !!}
+                      'placeholder'=>'Software Issue')) !!}
         </div>
 
 

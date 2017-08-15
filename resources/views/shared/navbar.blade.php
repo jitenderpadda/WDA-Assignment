@@ -24,7 +24,7 @@
                     <li ><a href="home">Home<span class="sr-only">(current)</span></a></li>
                     <li><a href="faq">FAQ</a></li>
                     <li><a href="raise_ticket">Raise Ticket</a></li>
-                    <li><a href="track-progress">Track Progress</a></li>
+                    <li><a href="track-progress">View Tickets</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
             <!-- END MAIN NAVIGATION -->

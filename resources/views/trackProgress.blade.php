@@ -17,7 +17,7 @@
         </div>
 
         <div class="form-group">
-            {!! Form::submit('Raise Ticket',
+            {!! Form::submit('Show Ticket',
               array('class'=>'btn btn-primary request-submit-button')) !!}
         </div>
 

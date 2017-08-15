@@ -13,7 +13,8 @@ class RaiseTicketController extends Controller
 {
     public function create()
     {
-        return view('requestForm');
+        $ticket = new Ticket;
+        return view('requestForm', ['ticket' => $ticket ]);
     }
     public function store(RaiseTicketFormRequest $request)
     {

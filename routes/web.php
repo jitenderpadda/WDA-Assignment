@@ -23,3 +23,5 @@ Route::get('track-progress',
 Route::post('track-progress',
     ['as' => 'track-progress-store', 'uses' => 'TrackProgressController@store']);
 Route::get('tickets', function () {return view('tickets');});
+Route::get('logout',
+    ['as' => 'logout', 'uses' => 'LogoutController@logout']);

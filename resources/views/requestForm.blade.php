@@ -8,6 +8,11 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
         {!! Form::open(array('route' => 'raise_ticket_store', 'class' => 'form')) !!}
         <div class="form-group">
             {!! Form::label('Your Name') !!}
@@ -26,33 +31,33 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('Subject') !!}
-            {!! Form::text('subject', null,
+            {!! Form::label('Software Issue') !!}
+            {!! Form::text('softwareIssue', null,
                 array('required',
                       'class'=>'form-control',
-                      'placeholder'=>'Issue Summary')) !!}
+                      'placeholder'=>'Software Issue')) !!}
         </div>
 
         <div class="form-group">
             {!! Form::label('Operating System') !!}
-            {!! Form::text('operating-system', null,
+            {!! Form::text('operatingSystem', null,
                 array('required',
                       'class'=>'form-control',
                       'placeholder'=>'Operating System')) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('Software Issue') !!}
-            {!! Form::textarea('issue', null,
+            {!! Form::label('Comments') !!}
+            {!! Form::textarea('comments', null,
                 array('required',
                       'class'=>'form-control',
-                      'placeholder'=>'Software Issue')) !!}
+                      'placeholder'=>'Comments')) !!}
         </div>
 
 
         <div class="form-group">
             {!! Form::submit('Raise Ticket',
-              array('class'=>'btn btn-primary request-submit-button')) !!}
+              array('class'=>'btn btn-success request-submit-button')) !!}
         </div>
 
         {!! Form::close() !!}

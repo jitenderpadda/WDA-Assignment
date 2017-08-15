@@ -22,4 +22,5 @@ Route::get('track-progress',
     ['as' => 'track-progress', 'uses' => 'TrackProgressController@create']);
 Route::post('track-progress',
     ['as' => 'track-progress-store', 'uses' => 'TrackProgressController@store']);
-Route::get('tickets', function () {return view('tickets');});
+Route::get('view_tickets',
+    ['as' => 'view_tickets', 'uses' => 'ticketsController@index']);

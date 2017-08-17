@@ -7,7 +7,7 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-        {!! Form::open(array('route' => 'track-progress-store', 'class' => 'form')) !!}
+        {!! Form::open(array('route' => 'login-store', 'class' => 'form')) !!}
         <div class="form-group">
             {!! Form::label('Your E-mail Address') !!}
             {!! Form::text('email', null,

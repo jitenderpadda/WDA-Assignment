@@ -20,6 +20,6 @@ class RaiseTicketController extends Controller
         $ticket=$request->all();
         $ticket['status']='pending';
         Ticket::create($ticket);
-        return redirect()->route('view_tickets');
+        return redirect()->route('login');
     }
 }

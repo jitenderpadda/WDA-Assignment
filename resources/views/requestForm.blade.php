@@ -57,7 +57,7 @@
 
         <div class="form-group">
             {!! Form::submit('Raise Ticket',
-              array('class'=>'btn btn-primary request-submit-button')) !!}
+              array('class'=>'btn btn-success request-submit-button')) !!}
         </div>
 
         {!! Form::close() !!}

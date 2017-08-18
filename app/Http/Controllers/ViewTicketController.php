@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Ticket;
+use View;
+use App\Http\Requests\CommentRequest;
 
 class ViewTicketController extends Controller
 {
@@ -48,8 +50,10 @@ class ViewTicketController extends Controller
      */
     public function show($id)
     {
+        $comments=Comment::where('ticket_id',$id);
         $ticket= Ticket::find($id);
-        return view('Ticket.show',compact('ticket'));
+        //return View::make('Ticket.show')->with(compact('comments', 'ticket'));
+        return view('Ticket.show',compact('ticket','comments'));
     }
 
     /**
@@ -70,9 +74,13 @@ class ViewTicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CommentRequest $request, $id)
     {
-        //
+        $comment = $request->all();
+        $comment['ticket_id'] = $id;
+        Comment::create($comment);
+        return redirect()->route('viewTickets.show',$id) ->with('success','Comment added successfully');
+
     }
 
     /**
@@ -83,6 +91,10 @@ class ViewTicketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = array(
+            'status'  => 'closed'
+        );
+        Ticket::find($id)->update($data);
+        return redirect()->route('viewTickets.show',$id) ->with('success','Ticket successfully closed');
     }
 }

@@ -8,11 +8,6 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
         {!! Form::open(array('route' => 'raiseTicket_store', 'class' => 'form')) !!}
         <div class="form-group">
             {!! Form::label('Your Name') !!}
@@ -51,7 +46,7 @@
             {!! Form::textarea('comment', null,
                 array('required',
                       'class'=>'form-control',
-                      'placeholder'=>'Software Issue')) !!}
+                      'placeholder'=>'Comment')) !!}
         </div>
 
 

@@ -1,25 +1,25 @@
-<html>
-<head>
-    <link rel="shortcut icon" href="{{{ asset('favicon.png') }}}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="{{ asset('css/themeStyle.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
-</head>
-<body>
+@extends('shared.master')
+@section('title', 'ITS')
+@section('content')
 <div class="container tickets">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('viewTickets.index') }}">Back</a>
-            </div>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
         </div>
-    </div>
+    @endif
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
     <div class="well">
         <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Ticket ID:</label>
+                <div class="col-sm-10">
+                    <p class="form-control-static">TCK-{{ $ticket->id}}</p>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="control-label col-sm-2" for="name">Raised By:</label>
                 <div class="col-sm-10">
@@ -58,5 +58,30 @@
             </div>
         </form>
     </div>
+    @foreach ($comments as $comment)
+        <div class="row">
+            <div class="well">
+                $comment->description
+            </div>
+        </div>
+    @endforeach
+        <div class="container">
+    {!! Form::model($ticket, ['method' => 'PATCH','route' => ['viewTickets.update', $ticket->id]]) !!}
+    <div class="form-group">
+        {!! Form::label('Comment') !!}
+        {!! Form::textarea('description', null,
+            array('required',
+                  'class'=>'form-control',
+                  'placeholder'=>'Comment')) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::submit('Submit Comment',
+          array('class'=>'btn btn-success request-submit-button')) !!}
+    </div>
+        </div>
+    {!! Form::close() !!}
+        {!! Form::open(['method' => 'DELETE','route' => ['viewTickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
+        {!! Form::submit('Close Ticket', ['class' => 'btn btn-danger']) !!}
+        {!! Form::close() !!}
 </div>
-</body>
+@endsection

@@ -3,10 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RaiseTicketFormRequest;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use App\Ticket;
 
 class RaiseTicketController extends Controller
@@ -20,6 +16,6 @@ class RaiseTicketController extends Controller
         $ticket = $request->all();
         $ticket['status'] = 'pending';
         Ticket::create($ticket);
-        return redirect()->route('viewTickets');
+        return redirect()->route('viewTickets.index');
     }
 }

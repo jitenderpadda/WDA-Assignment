@@ -32,10 +32,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-navbar-collapse">
                 <ul class="nav navbar-nav main-navbar-nav">
-                    <li ><a href="home">Home<span class="sr-only">(current)</span></a></li>
-                    <li><a href="faq">FAQ</a></li>
-                    <li><a href="raiseTicket">Raise Ticket</a></li>
-                    <li><a href="viewTickets">View Tickets</a></li>
+                    <li ><a href="{{ route('home') }}">Home<span class="sr-only">(current)</span></a></li>
+                    <li><a href="{{ route('faq') }}">FAQ</a></li>
+                    <li><a href="{{ route('raiseTicket') }}">Raise Ticket</a></li>
+                    <li><a href="{{ route('viewTickets.index') }}">View Tickets</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
             <!-- END MAIN NAVIGATION -->

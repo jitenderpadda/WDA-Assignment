@@ -15,10 +15,8 @@ class ViewTicketController extends Controller
      */
     public function index(Request $request)
     {
-        //$tickets = DB::table('tickets')->get();
-        //return view('tickets', ['tickets' => $tickets]);
-        $tickets= Ticket::orderBy('id','DESC')->paginate(5);
-        return view('Ticket.index',compact('tickets')) ->with('i', ($request->input('page', 1) - 1) * 5);
+        $tickets= Ticket::orderBy('id','DESC')->paginate(10);
+        return view('Ticket.viewTickets',compact('tickets')) ->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     /**

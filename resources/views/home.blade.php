@@ -2,38 +2,41 @@
 @extends('shared.master')
 @section('title', 'ITS')
 @section('content')
-    <!--<script src="{{ asset('/js/home.js') }}"></script>-->
+    @if ($email = Session::get('success'))
+        <script src="{{ asset('/js/home.js') }}"></script>
+    @endif
+
+
     <!--Modal-->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
                 <div class="modal-body">
-                    <form action="/sign" method="post" >
-                        <p>Username : <input type="text" name="username" value=""/></p>
-                        <p>Password : <input type="text" name="password" value=""/></p>
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    {!! Form::open(array('route' => 'login', 'class' => 'form')) !!}
+                    <div class="form-group">
+                        {!! Form::label('Your E-mail Address') !!}
+                        {!! Form::text('email', null,
+                            array('required',
+                                  'class'=>'form-control',
+                                  'placeholder'=>'Your e-mail address')) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit('Login',
+                          array('class'=>'btn btn-success request-submit-button')) !!}
+                    </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
-
         </div>
     </div>
-    <!--<div id="dialogLogin" name="form" class="boxes_area">
-            <form action="/sign" method="post" >
-                <p>Username : <input type="number" name="username" value=""/></p>
-                <p>Password : <input type="number" name="password" value=""/></p>
-                <input type="submit" value="Submit">
-            </form>
-    </div>-->
     <div class="container">
         <img id = "home-page-image" src={{ asset('img/home-page-image.jpg') }} alt="Logo">
     </div>

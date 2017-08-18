@@ -13,13 +13,13 @@ class RaiseTicketController extends Controller
 {
     public function create()
     {
-        return view('requestForm');
+        return view('raiseTicket');
     }
     public function store(RaiseTicketFormRequest $request)
     {
-        $ticket=$request->all();
-        $ticket['status']='pending';
+        $ticket = $request->all();
+        $ticket['status'] = 'pending';
         Ticket::create($ticket);
-        return redirect()->route('login');
+        return redirect()->route('viewTickets');
     }
 }

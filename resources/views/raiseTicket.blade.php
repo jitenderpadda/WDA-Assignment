@@ -13,7 +13,7 @@
                 <p>{{ $message }}</p>
             </div>
         @endif
-        {!! Form::open(array('route' => 'raise_ticket_store', 'class' => 'form')) !!}
+        {!! Form::open(array('route' => 'raiseTicket_store', 'class' => 'form')) !!}
         <div class="form-group">
             {!! Form::label('Your Name') !!}
             {!! Form::text('name', null,

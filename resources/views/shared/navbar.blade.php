@@ -31,8 +31,8 @@
                 <ul class="nav navbar-nav main-navbar-nav">
                     <li ><a href="home">Home<span class="sr-only">(current)</span></a></li>
                     <li><a href="faq">FAQ</a></li>
-                    <li><a href="raise_ticket">Raise Ticket</a></li>
-                    <li><a href="login">View Tickets</a></li>
+                    <li><a href="raiseTicket">Raise Ticket</a></li>
+                    <li><a href="viewTickets">View Tickets</a></li>
                     @if(Session::has('email'))
                         <li><a href="logout">Logout</a></li>
                     @endif

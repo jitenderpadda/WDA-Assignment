@@ -9,4 +9,9 @@ class PagesController extends Controller
     public function home(){
         return view('home');
     }
+
+    public function logout(Request $request){
+        session()->forget('email');
+        return $this->home();
+    }
 }

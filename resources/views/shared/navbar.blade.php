@@ -10,6 +10,9 @@
                         @else
                               User
                         @endif
+                        @if(Session::has('email'))
+                            <a href="logout">Logout</a>
+                        @endif
                     </p>
                 </div>
             </div>
@@ -33,9 +36,6 @@
                     <li><a href="faq">FAQ</a></li>
                     <li><a href="raiseTicket">Raise Ticket</a></li>
                     <li><a href="viewTickets">View Tickets</a></li>
-                    @if(Session::has('email'))
-                        <li><a href="logout">Logout</a></li>
-                    @endif
                 </ul>
             </div><!-- /.navbar-collapse -->
             <!-- END MAIN NAVIGATION -->

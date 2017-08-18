@@ -2,7 +2,7 @@
 @extends('shared.master')
 @section('title', 'ITS')
 @section('content')
-    @if ($email = Session::get('success'))
+    @if (!Session::has('email'))
         <script src="{{ asset('/js/home.js') }}"></script>
     @endif
 

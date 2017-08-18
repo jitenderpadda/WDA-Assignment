@@ -12,22 +12,24 @@
 */
 
 Route::get('/', function () {return view('home');});
+
 Route::get('home', function () {return view('home');});
+
 Route::get('raiseTicket',
     ['as' => 'raiseTicket', 'uses' => 'RaiseTicketController@create']);
+
 Route::post('raiseTicket',
     ['as' => 'raiseTicket_store', 'uses' => 'RaiseTicketController@store']);
+
 Route::get('faq', function () {return view('faq');});
 
-
 Route::post('login',
-    ['as' => 'login', 'uses' => 'LoginController@store']);
+    ['as' => 'login', 'uses' => 'HomeController@login']);
 
+Route::get('logout',
+   ['as' => 'logout', 'uses' => 'PagesController@logout']);
 
-//Route::get('logout',
- //   ['as' => 'logout', 'uses' => 'LogoutController@logout']);
-
-
-Route::resource('viewTickets','ViewTicketController');
 Route::get('viewTickets',
     ['as' => 'viewTickets', 'uses' => 'ViewTicketController@index']);
+
+Route::resource('viewTickets','ViewTicketController');

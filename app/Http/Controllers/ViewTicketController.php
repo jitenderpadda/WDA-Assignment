@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use Illuminate\Http\Request;
 use App\Ticket;
+use Illuminate\Support\Facades\Session;
 use View;
 use App\Http\Requests\CommentRequest;
 
@@ -17,8 +18,11 @@ class ViewTicketController extends Controller
      */
     public function index(Request $request)
     {
-        $tickets= Ticket::orderBy('id','DESC')->paginate(10);
-        return view('Ticket.index',compact('tickets')) ->with('i', ($request->input('page', 1) - 1) * 10);
+        if (session()->get('email') == 'admin@admin.com')
+            $tickets = Ticket::orderBy('id', 'DESC')->paginate(10);
+        else
+            $tickets = Ticket::orderBy('id', 'DESC')->where('email', session()->get('email'))->paginate(10);
+        return view('Ticket.index', compact('tickets'))->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -34,7 +38,7 @@ class ViewTicketController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,21 +49,20 @@ class ViewTicketController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $comments=Comment::where('ticket_id',$id);
-        $ticket= Ticket::find($id);
-        //return View::make('Ticket.show')->with(compact('comments', 'ticket'));
-        return view('Ticket.show',compact('ticket','comments'));
+        $comments = Comment::all()->where('ticket_id',$id);
+        $ticket = Ticket::find($id);
+        return view('Ticket.show', compact('ticket', 'comments'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -70,8 +73,8 @@ class ViewTicketController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(CommentRequest $request, $id)
@@ -79,22 +82,22 @@ class ViewTicketController extends Controller
         $comment = $request->all();
         $comment['ticket_id'] = $id;
         Comment::create($comment);
-        return redirect()->route('viewTickets.show',$id) ->with('success','Comment added successfully');
+        return redirect()->route('viewTickets.show', $id)->with('success', 'Comment added successfully');
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $data = array(
-            'status'  => 'closed'
+            'status' => 'closed'
         );
         Ticket::find($id)->update($data);
-        return redirect()->route('viewTickets.show',$id) ->with('success','Ticket successfully closed');
+        return redirect()->route('viewTickets.show', $id)->with('success', 'Ticket successfully closed');
     }
 }

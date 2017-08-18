@@ -8,22 +8,23 @@
     @endif
     <div class="container">
         <div class="tickets">
-        <table class="table table-bordered">
+        <table class="table table-striped">
             <tr>
                 <th>#</th>
+                <th>Issue Id</th>
                 <th>Name</th>
-                <th>Email</th>
+                <th>Software Issue</th>
                 <th>Status</th>
-                <th>Comment</th>
                 <th>Actions</th>
             </tr>
             @foreach ($tickets as $ticket)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{$ticket->name}}</td>
-                    <td>{{$ticket->email}}</td>
+                    <td>TCK-{{$ticket->id}}</td>
+                    <td><a href="{{ route('viewTickets.show',$ticket->id) }}">{{$ticket->name}}</a>
+                    </td>
+                    <td>{{$ticket->software_issue}}</td>
                     <td>{{$ticket->status}}</td>
-                    <td>{{$ticket->comment}}</td>
                     <td>
                         <a class="btn btn-info" href="{{ route('viewTickets.show',$ticket->id) }}">View</a>
                     </td>

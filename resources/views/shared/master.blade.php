@@ -9,7 +9,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link href="{{ asset('css/themeStyle.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
-    <script src="{{ asset('js/commonJS.js') }}"></script>
 </head>
 <body>
 @include('shared.navbar')

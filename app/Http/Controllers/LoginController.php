@@ -12,8 +12,10 @@ class LoginController extends Controller
     public function create()
     {
         if(session()->has('email')) {
-            $tickets = DB::table('tickets')->get();
-            return view('tickets', ['tickets' => $tickets]);
+
+
+            //$tickets = DB::table('tickets')->get();
+            //return view('tickets', ['tickets' => $tickets]);
         }
         else
             return view('login');

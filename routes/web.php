@@ -18,9 +18,14 @@ Route::get('raise_ticket',
 Route::post('raise_ticket',
     ['as' => 'raise_ticket_store', 'uses' => 'RaiseTicketController@store']);
 Route::get('faq', function () {return view('faq');});
+
+
 Route::get('login',
     ['as' => 'login', 'uses' => 'LoginController@create']);
 Route::post('login',
     ['as' => 'login-store', 'uses' => 'LoginController@store']);
 Route::get('logout',
     ['as' => 'logout', 'uses' => 'LogoutController@logout']);
+
+
+Route::resource('view_tickets','ViewTicketController');

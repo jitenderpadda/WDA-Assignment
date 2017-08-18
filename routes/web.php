@@ -29,7 +29,4 @@ Route::post('login',
 Route::get('logout',
    ['as' => 'logout', 'uses' => 'PagesController@logout']);
 
-Route::get('viewTickets',
-    ['as' => 'viewTickets', 'uses' => 'ViewTicketController@index']);
-
 Route::resource('viewTickets','ViewTicketController');

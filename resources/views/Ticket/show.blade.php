@@ -65,23 +65,25 @@
                 <p>Commented On:{{ $comment->created_at}}</p>
             </div>
         @endforeach
-        <div>
-            {!! Form::model($ticket, ['method' => 'PATCH','route' => ['viewTickets.update', $ticket->id]]) !!}
-            <div class="form-group">
-                {!! Form::label('Comment') !!}
-                {!! Form::textarea('description', null,
-                    array('required',
-                          'class'=>'form-control',
-                          'placeholder'=>'Comment')) !!}
+        @if($ticket->status!="Closed")
+            <div>
+                {!! Form::model($ticket, ['method' => 'PATCH','route' => ['viewTickets.update', $ticket->id]]) !!}
+                <div class="form-group">
+                    {!! Form::label('Comment') !!}
+                    {!! Form::textarea('description', null,
+                        array('required',
+                              'class'=>'form-control',
+                              'placeholder'=>'Comment')) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::submit('Submit Comment',
+                      array('class'=>'btn btn-success request-submit-button')) !!}
+                </div>
             </div>
-            <div class="form-group">
-                {!! Form::submit('Submit Comment',
-                  array('class'=>'btn btn-success request-submit-button')) !!}
-            </div>
-        </div>
-        {!! Form::close() !!}
-        {!! Form::open(['method' => 'DELETE','route' => ['viewTickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
-        {!! Form::submit('Close Ticket', ['class' => 'btn btn-danger']) !!}
-        {!! Form::close() !!}
+            {!! Form::close() !!}
+            {!! Form::open(['method' => 'DELETE','route' => ['viewTickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
+            {!! Form::submit('Close Ticket', ['class' => 'btn btn-danger']) !!}
+            {!! Form::close() !!}
+        @endif
     </div>
 @endsection

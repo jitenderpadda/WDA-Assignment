@@ -85,7 +85,7 @@ class ViewTicketController extends Controller
         Comment::create($comment);
 
         $data = array(
-            'status' => 'In Progress'
+            'status' => 'In Progress'
         );
         Ticket::find($id)->update($data);
 

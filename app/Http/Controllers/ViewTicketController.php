@@ -81,7 +81,14 @@ class ViewTicketController extends Controller
     {
         $comment = $request->all();
         $comment['ticket_id'] = $id;
+        $comment['email']=session()->get('email');
         Comment::create($comment);
+
+        $data = array(
+            'status' => 'In Progress'
+        );
+        Ticket::find($id)->update($data);
+
         return redirect()->route('viewTickets.show', $id)->with('success', 'Comment added successfully');
 
     }
@@ -95,7 +102,7 @@ class ViewTicketController extends Controller
     public function destroy($id)
     {
         $data = array(
-            'status' => 'closed'
+            'status' => 'Closed'
         );
         Ticket::find($id)->update($data);
         return redirect()->route('viewTickets.show', $id)->with('success', 'Ticket successfully closed');

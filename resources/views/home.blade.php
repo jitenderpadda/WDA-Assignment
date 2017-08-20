@@ -5,8 +5,6 @@
     @if (!Session::has('email'))
         <script src="{{ asset('/js/home.js') }}"></script>
     @endif
-
-
     <!--Modal-->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">

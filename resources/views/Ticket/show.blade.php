@@ -60,11 +60,12 @@
         </div>
         @foreach ($comments as $comment)
             <div class="well">
-                {{ $comment->description}}
-
+                <p>Comment: {{ $comment->description}}</p>
+                <p>Commented By:{{ $comment->email}}</p>
+                <p>Commented On:{{ $comment->created_at}}</p>
             </div>
         @endforeach
-        <div class="container">
+        <div>
             {!! Form::model($ticket, ['method' => 'PATCH','route' => ['viewTickets.update', $ticket->id]]) !!}
             <div class="form-group">
                 {!! Form::label('Comment') !!}

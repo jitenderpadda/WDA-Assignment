@@ -77,9 +77,32 @@
         </div>
         @foreach ($comments as $comment)
             <div class="well">
-                <p>Comment: {{ $comment->description}}</p>
-                <p>Commented By:{{ $comment->email}}</p>
-                <p>Commented On:{{ $comment->created_at}}</p>
+                <form class="form-horizontal">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="software issue">Comment:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <p class="form-control-static">{{ $comment->description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="software issue">Commented By:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <p class="form-control-static">{{ $comment->email}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="software issue">Created At:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <p class="form-control-static">{{ $comment->created_at}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
             </div>
         @endforeach
         @if($ticket->status!="Closed")

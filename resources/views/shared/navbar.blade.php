@@ -27,7 +27,7 @@
                 <i class="fa fa-bars"></i>
             </button>
             <a href="home" class="navbar-brand">
-                <img src={{ asset('img/logo.png') }} alt="Logo">
+                <img src={{ asset('img/logo_transparent.png') }} alt="Logo">
             </a>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-navbar-collapse">

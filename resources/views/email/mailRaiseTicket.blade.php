@@ -1,4 +1,4 @@
-<h1>Ticket Raised Successfully</h1>
+<h3>Ticket Raised Successfully</h3>
 <p>Name: {{$name}}</p>
 <p>Email: {{$email}}</p>
 <p>Software Issue: {{$software_issue}}</p>

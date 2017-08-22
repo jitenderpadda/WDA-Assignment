@@ -5,7 +5,7 @@
         <h1>RAISE TICKET</h1>
         <ul>
             @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li><span class="glyphicon glyphicon-alert"></span>{{ $error }}</li>
             @endforeach
         </ul>
         {!! Form::open(array('route' => 'raiseTicket_store', 'class' => 'form')) !!}
@@ -51,8 +51,9 @@
 
 
         <div class="form-group">
-            {!! Form::submit('Raise Ticket',
-              array('class'=>'btn btn-success request-submit-button')) !!}
+            <button type="submit" class="btn btn-success request-submit-button">
+                <span class="glyphicon glyphicon-plus-sign"></span> Raise Ticket
+            </button>
         </div>
 
         {!! Form::close() !!}

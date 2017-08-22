@@ -4,14 +4,14 @@
 
     <div class="container">
         <div class="tickets">
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <tr>
                 <th>#</th>
                 <th>Issue Id</th>
                 <th>Name</th>
                 <th>Software Issue</th>
                 <th>Status</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
             @foreach ($tickets as $ticket)
                 <tr>
@@ -22,7 +22,9 @@
                     <td>{{$ticket->software_issue}}</td>
                     <td>{{$ticket->status}}</td>
                     <td>
-                        <a class="btn btn-info" href="{{ route('viewTickets.show',$ticket->id) }}">View</a>
+                        <a href="{{ route('viewTickets.show',$ticket->id) }}" class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span> View
+                        </a>
                     </td>
                 </tr>
             @endforeach

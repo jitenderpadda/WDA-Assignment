@@ -4,12 +4,12 @@
     <div class="container tickets">
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
-                <p>{{ $message }}</p>
+                <p><span class="glyphicon glyphicon-alert"></span>{{ $message }}</p>
             </div>
         @endif
         <ul>
             @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <li><span class="glyphicon glyphicon-alert"></span>{{ $error }}</li>
             @endforeach
         </ul>
         <div class="well">
@@ -93,13 +93,16 @@
                               'placeholder'=>'Comment')) !!}
                 </div>
                 <div class="form-group">
-                    {!! Form::submit('Submit Comment',
-                      array('class'=>'btn btn-success request-submit-button')) !!}
+                    <button type="submit" class="btn btn-success request-submit-button">
+                        <span class="glyphicon glyphicon-comment"></span> Submit Comment
+                    </button>
                 </div>
             </div>
             {!! Form::close() !!}
             {!! Form::open(['method' => 'DELETE','route' => ['viewTickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Close Ticket', ['class' => 'btn btn-danger']) !!}
+                <button type="submit" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove-sign"></span> Close Ticket
+                </button>
             {!! Form::close() !!}
         @endif
     </div>

@@ -23,6 +23,6 @@ class TicketRaised extends Mailable
             'software_issue'=>$this->request->software_issue,
             'operating_system'=>$this->request->operating_system,
             'comment'=>$this->request->comment
-        ]);
+        ])->subject('Ticket raised with ITS');
     }
 }

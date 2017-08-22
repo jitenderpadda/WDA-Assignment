@@ -27,12 +27,13 @@
                                   'placeholder'=>'Your e-mail address')) !!}
                     </div>
                     <div class="form-group">
-                        {!! Form::submit('Login',
-                          array('class'=>'btn btn-success request-submit-button')) !!}
+                        <button type="submit" class="btn btn-success request-submit-button">
+                            <span class="glyphicon glyphicon-user"></span> Submit
+                        </button>
                     </div>
                     {!! Form::close() !!}
                 </div>
-            </div>
+            </div>1`
         </div>
     </div>
     <div class="container">

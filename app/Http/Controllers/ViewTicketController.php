@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\User;
 use Illuminate\Http\Request;
 use App\Ticket;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use View;
 use App\Http\Requests\CommentRequest;
@@ -18,7 +20,7 @@ class ViewTicketController extends Controller
      */
     public function index(Request $request)
     {
-        $tickets = Ticket::orderBy('id', 'DESC')->where('email', session()->get('email'))->paginate(10);
+        $tickets = Ticket::orderBy('id', 'DESC')->where('email', Auth::user()->email)->paginate(10);
         return view('Ticket.index', compact('tickets'))->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
@@ -78,7 +80,7 @@ class ViewTicketController extends Controller
     {
         $comment = $request->all();
         $comment['ticket_id'] = $id;
-        $comment['email']=session()->get('email');
+        $comment['email']=Auth::user()->email;
         Comment::create($comment);
 
         $data = array(

@@ -19,7 +19,7 @@
 
         <div class="form-group">
             {!! Form::label('Your E-mail Address') !!}
-            <input value="{{Session::get('email')}}" type="text" class="form-control" id="email" name="email">
+            <input value="{{ Auth::user()->email }}" type="text" class="form-control" id="email" name="email">
         </div>
 
         <div class="form-group">

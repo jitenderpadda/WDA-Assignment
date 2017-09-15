@@ -4,16 +4,25 @@
         <div class="container">
             <div class="row">
                 <div id="user-name">
-                    <p>Welcome
-                        @if(Session::has('email'))
-                             {{Session::get('email')}}
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                              User
+                            Welcome {{ Auth::user()->name }} |
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         @endif
-                        @if(Session::has('email'))
-                            <a href="{{ route('logout') }}">Logout</a>
-                        @endif
-                    </p>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -34,8 +43,10 @@
                 <ul class="nav navbar-nav main-navbar-nav">
                     <li ><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('faq') }}">FAQ</a></li>
-                    <li><a href="{{ route('raiseTicket') }}">Raise Ticket</a></li>
-                    <li><a href="{{ route('viewTickets.index') }}">View Tickets</a></li>
+                    @if (!Auth::guest())
+                        <li><a href="{{ route('raiseTicket') }}">Raise Ticket</a></li>
+                        <li><a href="{{ route('viewTickets.index') }}">View Tickets</a></li>
+                    @endif
                 </ul>
             </div><!-- /.navbar-collapse -->
             <!-- END MAIN NAVIGATION -->

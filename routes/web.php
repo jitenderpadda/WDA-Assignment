@@ -33,3 +33,7 @@ Route::get('logout',
    ['as' => 'logout', 'uses' => 'PagesController@logout']);
 
 Route::resource('viewTickets','ViewTicketController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -19,10 +19,7 @@
 
         <div class="form-group">
             {!! Form::label('Your E-mail Address') !!}
-            {!! Form::text('email', null,
-                array('required',
-                      'class'=>'form-control',
-                      'placeholder'=>'Your e-mail address')) !!}
+            <input value="{{Session::get('email')}}" type="text" class="form-control" id="email" name="email">
         </div>
 
         <div class="form-group">

@@ -18,10 +18,7 @@ class ViewTicketController extends Controller
      */
     public function index(Request $request)
     {
-        if (session()->get('email') == 'admin@admin.com')
-            $tickets = Ticket::orderBy('id', 'DESC')->paginate(10);
-        else
-            $tickets = Ticket::orderBy('id', 'DESC')->where('email', session()->get('email'))->paginate(10);
+        $tickets = Ticket::orderBy('id', 'DESC')->where('email', session()->get('email'))->paginate(10);
         return view('Ticket.index', compact('tickets'))->with('i', ($request->input('page', 1) - 1) * 10);
     }
 

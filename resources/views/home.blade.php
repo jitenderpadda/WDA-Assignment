@@ -1,41 +1,7 @@
-
-@extends('shared.master')
+@extends('layouts.app')
 @section('title', 'ITS')
 @section('content')
-    @if (!Session::has('email'))
-        <script src="{{ asset('/js/home.js') }}"></script>
-    @endif
-    <!--Modal-->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="modal-body">
-                    {!! Form::open(array('route' => 'login', 'class' => 'form')) !!}
-                    <div class="form-group">
-                        {!! Form::label('Your E-mail Address') !!}
-                        {!! Form::text('email', null,
-                            array('required',
-                                  'class'=>'form-control',
-                                  'placeholder'=>'Your e-mail address')) !!}
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success request-submit-button">
-                            <span class="glyphicon glyphicon-user"></span> Submit
-                        </button>
-                    </div>
-                    {!! Form::close() !!}
-                </div>
-            </div>1`
-        </div>
-    </div>
+<div class="container">
     <div class="container">
         <img id = "home-page-image" src={{ asset('img/home-page-image.jpg') }} alt="Logo">
     </div>
@@ -132,8 +98,8 @@
                         <div class="media-body">
                             <h4 class="media-heading">Human Resources</h4>
                             <p>Any request or complaints can be made via this portal to human resources department.
-                            Leave issues or salary related request, Loans against salary. You can write any request,
-                            and we will do our best to address you.</p>
+                                Leave issues or salary related request, Loans against salary. You can write any request,
+                                and we will do our best to address you.</p>
                         </div>
                     </div>
                 </div>
@@ -159,13 +125,14 @@
                         <div class="media-body">
                             <h4 class="media-heading">Information Technology Service</h4>
                             <p>We deal with all kinds of problems including google emails,
-                            telephone and voicemail, research and data storage, shared drive issues,
-                            wireless setup, password assistance, capture me, printing device forms,
-                            general IT enquiry.</p>
+                                telephone and voicemail, research and data storage, shared drive issues,
+                                wireless setup, password assistance, capture me, printing device forms,
+                                general IT enquiry.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</div>
 @endsection

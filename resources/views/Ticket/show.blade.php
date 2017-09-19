@@ -1,4 +1,4 @@
-@extends('shared.master')
+@extends('layouts.app')
 @section('title', 'ITS')
 @section('content')
     <div class="container tickets">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="software issue">Created At:</label>
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="software issue">Commented At:</label>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                 <p class="form-control-static">{{ $comment->created_at}}</p>
                             </div>
@@ -105,28 +105,5 @@
                 </form>
             </div>
         @endforeach
-        @if($ticket->status!="Closed")
-            <div>
-                {!! Form::model($ticket, ['method' => 'PATCH','route' => ['viewTickets.update', $ticket->id]]) !!}
-                <div class="form-group">
-                    {!! Form::label('Comment') !!}
-                    {!! Form::textarea('description', null,
-                        array('required',
-                              'class'=>'form-control',
-                              'placeholder'=>'Comment')) !!}
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success request-submit-button">
-                        <span class="glyphicon glyphicon-comment"></span> Submit Comment
-                    </button>
-                </div>
-            </div>
-            {!! Form::close() !!}
-            {!! Form::open(['method' => 'DELETE','route' => ['viewTickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
-                <button type="submit" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-remove-sign"></span> Close Ticket
-                </button>
-            {!! Form::close() !!}
-        @endif
     </div>
 @endsection

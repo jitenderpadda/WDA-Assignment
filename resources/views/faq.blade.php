@@ -1,4 +1,4 @@
-@extends('shared.master')
+@extends('layouts.app')
 @section('title', 'Submit Request')
 @section('content')
     <div class="container faq-container">

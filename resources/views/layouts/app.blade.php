@@ -20,9 +20,9 @@
 </head>
 <body>
 
-        @include('shared.navbar')
+        @include('layouts.navbar')
         @yield('content')
-        @include('shared.footer')
+        @include('layouts.footer')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

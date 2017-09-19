@@ -1,4 +1,4 @@
-@extends('shared.master')
+@extends('layouts.app')
 @section('title', 'ITS')
 @section('content')
 

@@ -22,3 +22,10 @@ Route::get('tickets/{id}', 'APITicketController@show');
 Route::post('tickets', 'APITicketController@store');
 Route::put('tickets/{id}', 'APITicketController@update');
 Route::delete('tickets/{id}', 'APITicketController@delete');
+
+Route::get('comments/{ticketId}', 'APICommentController@index');
+//Route::get('comments/{id}', 'APICommentController@show');
+Route::post('comments', 'APICommentController@store');
+//Route::put('comments/{id}', 'APICommentController@update');
+//Route::delete('comments/{id}', 'APICommentController@delete');
+

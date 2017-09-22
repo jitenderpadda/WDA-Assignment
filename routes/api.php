@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('tickets', 'APITicketController@index');
+Route::get('tickets/{id}', 'APITicketController@show');
+Route::post('tickets', 'APITicketController@store');
+Route::put('tickets/{id}', 'APITicketController@update');
+Route::delete('tickets/{id}', 'APITicketController@delete');
